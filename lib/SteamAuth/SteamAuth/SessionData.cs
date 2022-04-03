@@ -22,10 +22,14 @@ namespace SteamAuth
             cookies.Add(new Cookie("mobileClient", "android", "/", ".steamcommunity.com"));
 
             cookies.Add(new Cookie("steamid", SteamID.ToString(), "/", ".steamcommunity.com"));
-            cookies.Add(new Cookie("steamLogin", SteamLogin, "/", ".steamcommunity.com")
+
+            if(SteamLogin != null)
             {
-                HttpOnly = true
-            });
+                cookies.Add(new Cookie("steamLogin", SteamLogin, "/", ".steamcommunity.com")
+                {
+                    HttpOnly = true
+                });
+            }
 
             cookies.Add(new Cookie("steamLoginSecure", SteamLoginSecure, "/", ".steamcommunity.com")
             {

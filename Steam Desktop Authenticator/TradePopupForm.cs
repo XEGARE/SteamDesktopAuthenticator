@@ -103,5 +103,11 @@ namespace Steam_Desktop_Authenticator
             Reset();
             this.Show();
         }
+
+        private void TradePopupForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+        }
     }
 }
